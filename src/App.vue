@@ -15,9 +15,12 @@
 
 <template>
   <AppHeader />
-  <CardsList />
+  <main>
+    <CardsList />
+  </main>
 </template>
 
-<style lang="scss" scoped>
-@use './styles/general.scss'
+<style lang="scss">
+  @use './styles/general.scss' as *;
+  @use './styles/partials/variables' as *;
 </style>
