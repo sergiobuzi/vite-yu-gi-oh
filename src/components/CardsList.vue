@@ -1,10 +1,11 @@
 <script>
+import { store } from '../store';
 export default {
     name: 'CardsList',
 
     data() {
             return {
-            
+                store,
             }
         }
 }
@@ -31,10 +32,10 @@ export default {
 
             <div class="row">
 
-                <div class="card">
-                    <img src="https://images.ygoprodeck.com/images/cards/34541863.jpg" alt="" class="card-thumb">
-                    <h3 class="card-name">sdfasdfasdfasfasf</h3>
-                    <h3 class="card-type">asfasfasf</h3>
+                <div class="card" v-for="card in store.cardsList" :key="card.id">
+                    <img :src="card.card_images[0].image_url" :alt="card.id" class="card-thumb">
+                    <h3 class="card-name">{{ card.name }}</h3>
+                    <h3 class="card-type">{{ card.archetype }}</h3>
                 </div>
                 
 
