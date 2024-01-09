@@ -1,43 +1,30 @@
 <script>
-import { store } from '../store';
+import SingleCard from './SingleCard.vue';
+import CardSelector from './CardSelector.vue';
 export default {
     name: 'CardsList',
-
     data() {
-            return {
-                store,
-            }
-        }
+        return {
+        };
+    },
+    components: { SingleCard, CardSelector}
 }
 </script>
 
 <template>
     <div id="container">
 
-        <div id="selector-container">
-            <select id="selector" name="type">
-                <option >Alien</option>
-                <option >Human</option>
-                <option >Robot</option>
-            </select>
-        </div>
-
-
+       <CardSelector/>
 
         <div id="box">
 
             <div id="n-cards">
-                <h3>Found 39 cards</h3>
+                <h3>Found ?? cards</h3>
             </div>
 
             <div class="row">
 
-                <div class="card" v-for="card in store.cardsList" :key="card.id">
-                    <img :src="card.card_images[0].image_url" :alt="card.id" class="card-thumb">
-                    <h3 class="card-name">{{ card.name }}</h3>
-                    <h3 class="card-type">{{ card.archetype }}</h3>
-                </div>
-                
+                <SingleCard/>
 
             </div>
 
@@ -54,21 +41,6 @@ export default {
     background-color: $primary;
     width: 100%;
     min-height: 100vh;
-
-    #selector-container{
-        width: 69%;
-        margin: auto;
-        height: 80px;
-        display: flex;
-        align-items: center;
-
-        #selector{
-            width: 120px;
-            height: 30px;
-            border: none;
-            border-radius: 3px;
-        }
-    }
 
 
     #box{
@@ -101,38 +73,6 @@ export default {
             min-height: 300px;
             justify-content: space-between;
             gap: 20px;
-
-            .card{
-                min-height: 300px;
-                background-color: $primary;
-                width: calc(100% / 5 - 20px);
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-
-
-                .card-thumb{
-                    width: 100%;
-
-                }
-
-                .card-name{
-                    color: white;
-                    margin-top: 20px;
-                    width: 100%;
-                    word-wrap: break-word;
-                    text-align: center;
-                }
-
-                .card-type{
-                    color: black;
-                    font-weight: 100;
-                    margin-top: 30px;
-                    word-wrap: break-word;
-                    text-align: center;
-                    margin-bottom: 20px;
-                }                
-            }
         }
     }
     
