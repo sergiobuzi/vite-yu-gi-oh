@@ -13,10 +13,10 @@ export default {
 
 <template>
 
-    <div id="selector-container">
+    <div id="selector-container"  @change="$emit('search')">
         <select id="selector" name="type"  v-model="store.SearchArchetype">
             <option value="" selected>Select Archetype</option>
-            <option v-for="archetype in store.archetypeList" :key="archetype">{{ archetype.archetype_name }}</option>
+            <option v-for="archetype in store.archetypeList" :key="archetype" :value="archetype.archetype_name">{{ archetype.archetype_name }}</option>
         </select>
     </div>
 

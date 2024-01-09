@@ -14,7 +14,7 @@ export default {
 <template>
     <div id="container">
 
-       <CardSelector/>
+       <CardSelector />
 
         <div id="box">
 

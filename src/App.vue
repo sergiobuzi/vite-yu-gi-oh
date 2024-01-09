@@ -35,8 +35,14 @@
 
       // funzione per che mi inserisce nell' array le carte
       getCards() {
+        let archetypeUrl = store.apiURL;
+
+        if (store.SearchArchetype !== '') {
+          archetypeUrl += `?${store.typeArchetype}=${store.SearchArchetype}`
+      }
+
         axios
-          .get(store.apiURL)
+          .get(archetypeUrl)
           .then((res => {
             store.cardsList = res.data.data;
           }))
@@ -58,7 +64,7 @@
 <template>
   <AppHeader />
   <main>
-    <CardsList />
+    <CardsList  />
   </main>
 </template>
 
