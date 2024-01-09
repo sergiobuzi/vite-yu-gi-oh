@@ -20,11 +20,24 @@
     },
 
     methods: {
+      // funzione per che mi inserisce nell' array i nomi degli arechetype
+      getArchetype() {
+        axios
+          .get(store.apiArchetype)
+          .then((res => {
+            store.archetypeList = res.data;
+          }))
+          .catch((err) => {
+            console.log("Errori", err);
+          });
+      },
+
+
+      // funzione per che mi inserisce nell' array le carte
       getCards() {
         axios
           .get(store.apiURL)
           .then((res => {
-            console.log(res.data.data);
             store.cardsList = res.data.data;
           }))
           .catch((err) => {
@@ -35,6 +48,7 @@
 
     created() {
       this.getCards();
+      this.getArchetype();
     },
   }
 

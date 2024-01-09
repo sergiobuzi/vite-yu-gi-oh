@@ -1,10 +1,11 @@
 <script>
+import { store } from '../store';
 export default {
     name: 'CardSelector',
 
     data() {
         return {
-
+            store,
         }
     }
 }
@@ -13,10 +14,9 @@ export default {
 <template>
 
     <div id="selector-container">
-        <select id="selector" name="type">
-            <option>Alien</option>
-            <option>Human</option>
-            <option>Robot</option>
+        <select id="selector" name="type"  v-model="store.SearchArchetype">
+            <option value="" selected>Select Archetype</option>
+            <option v-for="archetype in store.archetypeList" :key="archetype">{{ archetype.archetype_name }}</option>
         </select>
     </div>
 
@@ -34,7 +34,7 @@ export default {
     align-items: center;
 
     #selector {
-        width: 120px;
+        width: 150px;
         height: 30px;
         border: none;
         border-radius: 3px;
