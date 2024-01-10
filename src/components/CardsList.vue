@@ -1,11 +1,33 @@
 <script>
+import axios from 'axios';
+import { store } from '../store';
 import SingleCard from './SingleCard.vue';
 import CardSelector from './CardSelector.vue';
 export default {
     name: 'CardsList',
     data() {
         return {
+            store,
         };
+    },
+
+    methods: {
+      getCards() {
+        let archetypeUrl = store.apiURL;
+
+        if (store.SearchArchetype !== '') {
+          archetypeUrl += `&archetype=${store.SearchArchetype}`
+      }
+
+        axios
+          .get(archetypeUrl)
+          .then((res => {
+            store.cardsList = res.data.data;
+          }))
+          .catch((err) => {
+            console.log("Errori", err);
+          });
+      }
     },
     components: { SingleCard, CardSelector}
 }
@@ -14,7 +36,7 @@ export default {
 <template>
     <div id="container">
 
-       <CardSelector />
+       <CardSelector @change='getCards'/>
 
         <div id="box">
 
