@@ -16,7 +16,7 @@ export default {
         let archetypeUrl = store.apiURL;
 
         if (store.SearchArchetype !== '') {
-          archetypeUrl += `&archetype=${store.SearchArchetype}`
+            archetypeUrl += `&${store.typeArchetype}=${store.SearchArchetype}`
       }
 
         axios
@@ -29,7 +29,7 @@ export default {
           });
       }
     },
-    components: { SingleCard, CardSelector}
+    components: { SingleCard, CardSelector }
 }
 </script>
 
@@ -93,7 +93,7 @@ export default {
             flex-wrap: wrap;
             width: 100%;
             min-height: 300px;
-            justify-content: space-between;
+            justify-content: flex-start;
             gap: 20px;
         }
     }

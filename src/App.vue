@@ -38,7 +38,7 @@
         let archetypeUrl = store.apiURL;
 
         if (store.SearchArchetype !== '') {
-          archetypeUrl += `?${store.typeArchetype}=${store.SearchArchetype}`
+          archetypeUrl += `&${store.typeArchetype}=${store.SearchArchetype}`
       }
 
         axios

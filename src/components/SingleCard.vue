@@ -29,7 +29,7 @@ export default {
 .card {
     min-height: 300px;
     background-color: $primary;
-    width: calc(100% / 5 - 20px);
+    width: calc(100% / 5 - 16px);
     display: flex;
     flex-direction: column;
     align-items: center;
